@@ -1,0 +1,69 @@
+
+.boot-title {
+    font-family: 'Italianno';
+    background-color: #990606;
+    height: 100%;
+    color: beige;
+        
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.site-service {
+    font-family: 'Montserrat';
+    margin-top: 6rem;
+
+    a {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background-color: #2FA825;
+        border-radius: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 5rem;
+    }
+    .boot-title {
+        font-size: 60pt;
+        width: 100%;
+    }
+
+    .site-service {
+        
+    font-size: 18pt;
+        a {
+            height: 80%;
+            width: 80%;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        margin: 5rem 2rem 0 2rem;
+    }
+    .boot-title {
+        font-size: 70pt;
+        width: 75%;
+    }
+
+    .site-service { 
+        font-size: 24pt;
+        a {
+            height: 80%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+}
