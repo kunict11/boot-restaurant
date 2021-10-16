@@ -1,4 +1,4 @@
-package Dish;
+package com.example.bootrestaurant.Dish;
 
 import org.springframework.data.repository.CrudRepository;
 

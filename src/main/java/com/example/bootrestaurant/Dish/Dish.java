@@ -1,7 +1,6 @@
-package Dish;
+package com.example.bootrestaurant.Dish;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Dish {

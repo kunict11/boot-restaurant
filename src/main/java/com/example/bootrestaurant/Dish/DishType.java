@@ -1,4 +1,4 @@
-package Dish;
+package com.example.bootrestaurant.Dish;
 
 public enum DishType {
     ANTIPASTO,
