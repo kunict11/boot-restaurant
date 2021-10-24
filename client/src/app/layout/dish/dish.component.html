@@ -1,0 +1,6 @@
+<div class="container">
+    <ul *ngFor="let type of dishTypes">
+        <h2>{{ type }}</h2>
+        <li *ngFor="let dish of dishes | filterByType: type ">{{ dish.getName() }}</li>
+    </ul>
+</div>
