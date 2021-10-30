@@ -22,17 +22,12 @@ public class DishController {
 
     @GetMapping("/dishes")
     List<Dish> getAllDishes() {
-        List<Dish> dishes = new ArrayList<>();
-        dishRepo.findAll().forEach(dishes::add);
 
-        return dishes;
+        return dishRepo.findAll();
     }
 
     @GetMapping("/dishes/{id}")
     Optional<Dish> getDishById(@PathVariable Integer id) {
         return dishRepo.findById(id);
     }
-//    private Map<DishType, List<Dish>> findAllGrouped(List<Dish> dishes) {
-//        return dishes.stream().collect(Collectors.groupingBy(Dish::getDishType));
-//    }
 }
