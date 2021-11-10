@@ -1,6 +1,8 @@
 package com.example.bootrestaurant.Dish;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +23,18 @@ public class DishController {
     }
 
     @GetMapping("/dishes")
-    List<Dish> getAllDishes() {
+    public ResponseEntity<List<Dish>> getAllDishes() {
 
-        return dishRepo.findAll();
+        return new ResponseEntity<>(dishRepo.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/dishes/{id}")
-    Optional<Dish> getDishById(@PathVariable Integer id) {
-        return dishRepo.findById(id);
+    // I don't think defining the return type as a wildcard is a good idea...
+    public ResponseEntity<?> getDishById(@PathVariable Integer id) {
+        Optional<Dish> dish = dishRepo.findById(id);
+        if(dish.isEmpty()) {
+            return new ResponseEntity<>("Dish with given id doesn't exist", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(dish.get(), HttpStatus.OK);
     }
 }

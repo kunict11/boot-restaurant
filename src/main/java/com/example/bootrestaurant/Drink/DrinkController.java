@@ -2,6 +2,8 @@ package com.example.bootrestaurant.Drink;
 
 import com.example.bootrestaurant.Helpers.EnumConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,13 +21,13 @@ public class DrinkController {
     }
 
     @GetMapping("/drinks")
-    public List<Drink> getAllDrinks(){
-        return drinkRepository.findAll();
+    public ResponseEntity<List<Drink>> getAllDrinks(){
+        return new ResponseEntity<>(drinkRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/drinks/{type}")
-    public List<Drink> getDrinksByType(@PathVariable DrinkType type){
-        return drinkRepository.findByDrinkType(type);
+    public ResponseEntity<List<Drink>> getDrinksByType(@PathVariable DrinkType type){
+        return new ResponseEntity<>(drinkRepository.findByDrinkType(type), HttpStatus.OK);
     }
 
     @InitBinder
