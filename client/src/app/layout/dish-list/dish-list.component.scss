@@ -1,0 +1,14 @@
+.menu-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+
+    h2 {
+        position: absolute;
+    }
+}
+
+.empty {
+    margin-top: 2.5rem;
+    font-size: 16pt;
+}

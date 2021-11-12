@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS Orders;
 CREATE TABLE Dish (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    description VARCHAR(100),
+    description VARCHAR(300),
     dish_type VARCHAR(10) NOT NULL,
     price DOUBLE NOT NULL,
     image_path VARCHAR(100),
@@ -16,7 +16,7 @@ CREATE TABLE Dish (
 CREATE TABLE Drink (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    details VARCHAR(100),
+    details VARCHAR(300),
     drink_type VARCHAR(10) NOT NULL,
     price DOUBLE NOT NULL,
     image_path VARCHAR(100),

@@ -1,0 +1,9 @@
+<div class="container">
+    <ul *ngFor="let type of dishTypes" class="menu-list">
+        <h2 style="font-size: 24pt; font-family: 'Montserrat'; display: relative;">{{ type }}</h2>
+        <div *ngIf="(dishes | filterByType: type)?.length === 0" class="empty">
+            <span>No dishes of this type are available <fa-icon [icon]="faFrown" style="color: #FCC94A;"></fa-icon> </span>
+        </div>
+        <app-dish *ngFor="let dish of dishes | filterByType: type" [dish]="dish"></app-dish>
+    </ul>
+</div>

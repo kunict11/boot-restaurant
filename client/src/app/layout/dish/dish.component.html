@@ -1,6 +1,12 @@
-<div class="container">
-    <ul *ngFor="let type of dishTypes">
-        <h2>{{ type }}</h2>
-        <li *ngFor="let dish of dishes | filterByType: type ">{{ dish.getName() }}</li>
-    </ul>
-</div>
+<mat-card class="dish-card">
+    <mat-card-header>
+      <mat-card-title>{{ dish.getName() }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src='../../../assets/noimage.png'>
+    <mat-card-content>
+      <p>
+        {{ dish.getDescription() }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  
