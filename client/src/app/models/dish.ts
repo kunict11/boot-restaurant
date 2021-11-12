@@ -12,7 +12,7 @@ export class Dish {
                 private description: string,
                 private type: DishType,
                 private price: number,
-                private imgPath: string) {}
+                private imagePath: string) {}
 
     public getType(): DishType {
         return this.type;
@@ -24,5 +24,9 @@ export class Dish {
 
     public getDescription(): string {
         return this.description;
+    }
+
+    public getId(): Number {
+        return this.id;
     }
 }

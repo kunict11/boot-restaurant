@@ -1,0 +1,43 @@
+<mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile [rowspan]="2">
+        <h1 class="title">Make an order</h1>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="5">
+        <form [formGroup]="orderForm" class="order-form">
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Name</mat-label>
+              <input matInput required placeholder="Enter your name" type="text" formControlName="customerName">  
+              <mat-error *ngIf="customerNameControl?.errors?.['required']">Name is required.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-input">
+              <mat-label>Address</mat-label>
+              <input matInput required placeholder="Enter your address" type="text" formControlName="address">  
+                <mat-error *ngIf="addressControl?.errors?.['required']">We have to know where to deliver your order.</mat-error>
+            </mat-form-field>
+            <mat-label>Choose the food you would like to order</mat-label>
+            <mat-select (selectionChange)="onDishSelectChange($event.value)">
+                <mat-option *ngFor="let type of dishTypes" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+            <!-- <mat-form-field> -->
+                <mat-selection-list #dishList (selectionChange)="onDishChoiceChange(dishList.selectedOptions.selected[0]?.value)" *ngIf="selectedDishType!==''" [multiple]="false">
+                    <mat-list-option *ngFor="let dish of dishes | filterByType: selectedDishType" [value]="dish">{{ dish.getName() }}</mat-list-option>
+                </mat-selection-list>
+            <!-- </mat-form-field> -->
+            <div *ngIf="orderedDishes.length > 0">
+                Your current orders:
+                <mat-list class="ordered-dishes">
+                    <mat-list-item *ngFor="let dish of orderedDishes">
+                        {{ dish.getName() }} 
+                        <span class="remove-btn">
+                            <button mat-icon-button type="button" (click)="removeFromOrders(dish)">
+                                <fa-icon [icon]="faWindowClose" style="color: #c91212"></fa-icon>
+                            </button>
+                        </span>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="1">
+    </mat-grid-tile>
+</mat-grid-list>

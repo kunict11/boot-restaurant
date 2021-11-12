@@ -5,6 +5,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +19,8 @@ import { MenuComponent } from './layout/menu/menu.component';
 import { DishComponent } from './layout/dish/dish.component';
 import { FilterByTypePipe } from './layout/dish-list/filter-by-type.pipe';
 import { DishListComponent } from './layout/dish-list/dish-list.component';
+import { OrderComponent } from './layout/order/order.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,8 @@ import { DishListComponent } from './layout/dish-list/dish-list.component';
     MenuComponent,
     DishComponent,
     FilterByTypePipe,
-    DishListComponent
+    DishListComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,13 @@ import { DishListComponent } from './layout/dish-list/dish-list.component';
     MatGridListModule,
     HttpClientModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

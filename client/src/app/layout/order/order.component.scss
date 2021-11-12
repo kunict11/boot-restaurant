@@ -1,0 +1,21 @@
+::ng-deep {
+    .mat-form-field {
+        width: 50rem;
+    }
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+        color: #30a825b7
+    }
+    .mat-form-field.mat-focused .mat-form-field-label {
+        color: #30a825b7;
+    }
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.remove-btn {
+    display: flex;
+    margin-left: auto;
+}
