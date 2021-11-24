@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,9 @@ import { FilterByTypePipe } from './layout/dish-list/filter-by-type.pipe';
 import { DishListComponent } from './layout/dish-list/dish-list.component';
 import { OrderComponent } from './layout/order/order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DrinkComponent } from './layout/drink/drink.component';
+import { DrinkListComponent } from './layout/drink-list/drink-list.component';
+import { FilterDrinkByTypePipe } from './layout/drink-list/filter-drink-by-type.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DishComponent,
     FilterByTypePipe,
     DishListComponent,
-    OrderComponent
+    OrderComponent,
+    DrinkComponent,
+    DrinkListComponent,
+    FilterDrinkByTypePipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { serverUrl } from '../environment';
 import { Observable, Subject } from 'rxjs';
 import { Dish } from '../models/dish';
 import { map, catchError } from 'rxjs/operators';
+import { Drink } from '../models/drink';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { map, catchError } from 'rxjs/operators';
 export class MenuService {
 
   private readonly dishUrl = `${serverUrl}/dishes`;
+  private readonly drinkUrl = `${serverUrl}/drinks`;
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,26 @@ export class MenuService {
                     dishFromServer.dishType, 
                     dishFromServer.price, 
                     dishFromServer.imagePath
+                    );
+  }
+
+  public getAllDrinks() : Observable<Drink[]> {
+    return this.http
+    .get<Drink[]>(this.drinkUrl)
+    .pipe(
+      map((res: Drink[]) => {
+        return res.map(dish => this.convertToDrink(dish))
+      })
+    );
+  }
+
+  private convertToDrink(drinkFromServer: any): Drink {
+    return new Drink(drinkFromServer.id, 
+                     drinkFromServer.name, 
+                     drinkFromServer.details, 
+                     drinkFromServer.drinkType, 
+                     drinkFromServer.price, 
+                     drinkFromServer.imagePath
                     );
   }
 }

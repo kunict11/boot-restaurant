@@ -12,7 +12,11 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  public makeOrder(order: Order): Observable<string | null> {
-    return this.http.post<string | null>(this.orderUrl, { order: order });
+  public makeOrder(order: Order): Observable<{ message: string } | null> {
+    return this.http.post<{ message: string } | null>(this.orderUrl,
+       { customerName: order.name,
+         address: order.address,
+         dishes: order.dishes, 
+         drinks: order.drinks });
   }
 }

@@ -14,6 +14,10 @@ export class Drink {
                 private price: number,
                 private imagePath: string) {}
 
+    public getId(): Number {
+        return this.id;
+    }
+
     public getType(): DrinkType {
         return this.type;
     }

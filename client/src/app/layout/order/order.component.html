@@ -2,8 +2,8 @@
     <mat-grid-tile [rowspan]="2">
         <h1 class="title">Make an order</h1>
     </mat-grid-tile>
-    <mat-grid-tile [rowspan]="5">
-        <form [formGroup]="orderForm" class="order-form">
+    <mat-grid-tile [rowspan]="10" style="margin-top: -15rem;">
+        <form [formGroup]="orderForm" class="order-form" (ngSubmit)="submitOrder()">
             <mat-form-field appearance="outline" class="form-input">
               <mat-label>Name</mat-label>
               <input matInput required placeholder="Enter your name" type="text" formControlName="customerName">  
@@ -23,7 +23,22 @@
                     <mat-list-option *ngFor="let dish of dishes | filterByType: selectedDishType" [value]="dish">{{ dish.getName() }}</mat-list-option>
                 </mat-selection-list>
             <!-- </mat-form-field> -->
-            <div *ngIf="orderedDishes.length > 0">
+            <div style="margin-top: 1rem;">
+                <mat-slide-toggle (toggleChange)="onSlideToggleChange();">
+                    Include drinks
+                </mat-slide-toggle>
+            </div>
+            <div *ngIf="drinksIncluded" >
+                <mat-label>Choose the drinks you would like to order</mat-label>
+                <mat-select (selectionChange)="onDrinkSelectChange($event.value)">
+                    <mat-option *ngFor="let type of drinkTypes" [value]="type">{{ type }}</mat-option>
+                </mat-select>
+                <mat-selection-list #drinkList (selectionChange)="onDrinkChoiceChange(drinkList.selectedOptions.selected[0]?.value)" *ngIf="selectedDrinkType!==''" [multiple]="false">
+                    <mat-list-option *ngFor="let drink of drinks | filterDrinkByType: selectedDrinkType" [value]="drink">{{ drink.getName() }}</mat-list-option>
+                </mat-selection-list>
+            </div>
+
+            <div *ngIf="orderedDishes.length > 0 || orderedDrinks.length > 0" style="margin-top: 2rem;">
                 Your current orders:
                 <mat-list class="ordered-dishes">
                     <mat-list-item *ngFor="let dish of orderedDishes">
@@ -34,10 +49,19 @@
                             </button>
                         </span>
                     </mat-list-item>
+                    <mat-list-item *ngFor="let drink of orderedDrinks">
+                        {{ drink.getName() }} 
+                        <span class="remove-btn">
+                            <button mat-icon-button type="button" (click)="removeFromDrinks(drink)">
+                                <fa-icon [icon]="faWindowClose" style="color: #c91212"></fa-icon>
+                            </button>
+                        </span>
+                    </mat-list-item>
                 </mat-list>
             </div>
+            <div style="margin-top: 2rem;">
+                <button mat-raised-button type="submit">Submit Order</button>
+            </div>
         </form>
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="1">
     </mat-grid-tile>
 </mat-grid-list>

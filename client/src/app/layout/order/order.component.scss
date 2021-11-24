@@ -8,6 +8,20 @@
     .mat-form-field.mat-focused .mat-form-field-label {
         color: #30a825b7;
     }
+    .mat-slide-toggle .mat-slide-toggle-bar {
+        background-color: #246320;
+    }
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+        background-color: #2bc41d;
+    }
+    
+    .mat-slide-toggle .mat-slide-toggle-thumb {
+        background-color: #2a6827;
+    }
+    
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+        background-color: #30a825;
+    }
 }
 
 .order-form {
