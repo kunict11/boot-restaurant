@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS Orders_Drinks;
 DROP TABLE IF EXISTS Dish;
 DROP TABLE IF EXISTS Drink;
 DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Reservation;
+DROP TABLE IF EXISTS Seating_Arrangement;
 
 CREATE TABLE Dish (
     id INT NOT NULL AUTO_INCREMENT,
@@ -43,4 +45,19 @@ CREATE TABLE Orders_Drinks (
         REFERENCES Drink(id),
     FOREIGN KEY (order_id)
         REFERENCES Orders(id)
+);
+CREATE TABLE Seating_Arrangement (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    seats_at_table INT NOT NULL,
+    available_tables INT NOT NULL,
+    UNIQUE(seats_at_table)
+);
+CREATE TABLE Reservation (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    customer_name VARCHAR(50) NOT NULL,
+    date_time DATETIME NOT NULL,
+    table_id INT NOT NULL,
+    FOREIGN KEY (table_id)
+        REFERENCES Seating_Arrangement(id),
+    UNIQUE (table_id)
 );

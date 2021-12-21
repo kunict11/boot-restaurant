@@ -28,3 +28,12 @@ INSERT INTO Drink(name, details, drink_type, price, image_path)
     VALUES('Cappuccino', NULL, 'COFFEE', 2.4, NULL);
 INSERT INTO Drink(name, details, drink_type, price, image_path)
     VALUES('Macchiato', NULL, 'COFFEE', 2.4, NULL);
+
+INSERT INTO Seating_Arrangement
+    VALUES(11, 2, 10);
+INSERT INTO Seating_Arrangement(seats_at_table, available_tables)
+    VALUES(4, 12);
+INSERT INTO Seating_Arrangement(seats_at_table, available_tables)
+    VALUES(6, 6);
+INSERT INTO Seating_Arrangement(seats_at_table, available_tables)
+    VALUES(8, 3);
