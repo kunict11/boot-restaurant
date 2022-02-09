@@ -1,0 +1,47 @@
+<mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile [rowspan]="3" [colspan]="3">
+    <h1 class="title">Table reservation</h1>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="2" [colspan]="3">
+    <form [formGroup]="reservationForm" (ngSubmit)="makeReservation()">
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          required
+          placeholder="Enter your name"
+          type="text"
+          formControlName="customerName"
+        />
+        <mat-error *ngIf="customerNameControl?.errors?.['required']">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="datetime-local"
+          placeholder="Choose date and time"
+          formControlName="dateTime"
+        />
+        <mat-error *ngIf="dateTimeControl?.errors?.['required']">
+          Date and time are required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Number of seats</mat-label>
+        <mat-select formControlName="requestedSeats">
+          <mat-option *ngFor="let n of numberOfSeats" value="{{ n }}">
+            {{ n }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="requestedSeatsControl?.errors?.['required']">
+          Please choose how many seats you would reserve.
+        </mat-error>
+      </mat-form-field>
+      <div style="margin-top: 2rem">
+        <button mat-raised-button type="submit">Make reservation</button>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

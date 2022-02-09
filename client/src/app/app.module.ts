@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DrinkComponent } from './layout/drink/drink.component';
 import { DrinkListComponent } from './layout/drink-list/drink-list.component';
 import { FilterDrinkByTypePipe } from './layout/drink-list/filter-drink-by-type.pipe';
+import { ReservationComponent } from './layout/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { FilterDrinkByTypePipe } from './layout/drink-list/filter-drink-by-type.
     OrderComponent,
     DrinkComponent,
     DrinkListComponent,
-    FilterDrinkByTypePipe
+    FilterDrinkByTypePipe,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +60,11 @@ import { FilterDrinkByTypePipe } from './layout/drink-list/filter-drink-by-type.
     MatSelectModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

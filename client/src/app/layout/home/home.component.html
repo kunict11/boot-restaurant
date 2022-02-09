@@ -1,12 +1,29 @@
-<mat-grid-list cols="1" rowHeight="200px" >
-    <mat-grid-tile [rowspan]="2">
-        <div class="container text-center boot-title">Boot Restaurant</div>
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="1">
-        <a mat-stroked-button color="primary" class="item color-1" routerLink="/menu">Menu</a>
-        <a mat-stroked-button color="primary" class="item color-2" routerLink="/order">Order</a>
-        <a mat-stroked-button color="primary" class="item color-3" >Reservations</a>
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="1">
-    </mat-grid-tile>
+<mat-grid-list cols="1" rowHeight="200px">
+  <mat-grid-tile [rowspan]="2">
+    <div class="container text-center boot-title">Boot Restaurant</div>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1">
+    <a
+      mat-stroked-button
+      color="primary"
+      class="item color-1"
+      routerLink="/menu"
+      >Menu</a
+    >
+    <a
+      mat-stroked-button
+      color="primary"
+      class="item color-2"
+      routerLink="/order"
+      >Order</a
+    >
+    <a
+      mat-stroked-button
+      color="primary"
+      class="item color-3"
+      routerLink="/reservation"
+      >Reservations</a
+    >
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="1"> </mat-grid-tile>
 </mat-grid-list>

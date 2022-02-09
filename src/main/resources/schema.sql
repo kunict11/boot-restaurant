@@ -58,6 +58,5 @@ CREATE TABLE Reservation (
     date_time DATETIME NOT NULL,
     table_id INT NOT NULL,
     FOREIGN KEY (table_id)
-        REFERENCES Seating_Arrangement(id),
-    UNIQUE (table_id)
+        REFERENCES Seating_Arrangement(id)
 );
